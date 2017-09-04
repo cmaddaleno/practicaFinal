@@ -58,6 +58,7 @@
                 <configuration>
                     <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>
+                <version>3.1.0</version>
             </plugin>
         </plugins>
     </reporting>

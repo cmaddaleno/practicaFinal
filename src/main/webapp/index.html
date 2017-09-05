@@ -34,12 +34,7 @@
                 
                 <ul ng-if="static">
                     <li ng-repeat="item in staticjvmlanguages" ng-class="">
-                        <p ng-class="item.logo != '' && 'text-success' || 'text-danger' ">{{ item.name }} -
-                                <a ng-href="{{item.homepage}}" >Website</a>
-                                <img ng-src="{{item.logo}}" width="35px" />
-                        </p>
-                        <br/>
-                    <div mp-directive></div>
+                        <mp-directive></mp-directive>
                     </li>
                 </ul>
                 

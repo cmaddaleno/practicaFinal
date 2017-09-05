@@ -16,6 +16,8 @@ angular.module('mpApp.controllers',
     $scope.dynamicjvmlanguages = ['JRuby', 'Groovy', 'Jyton', 'Mirah', 'JavaScript'];
 
     $scope.favoritelang = 'Java';
+    
+    $scope.static = true;
 })
 .controller('demoController', function($scope) {
     

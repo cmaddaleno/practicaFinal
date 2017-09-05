@@ -26,7 +26,12 @@
             <div id="dirdemo" ng-controller="demoDirectivesController">
                 <h1>Los mejores lenguajes de programación de la Galaxia</h1>
                 
-                <ul>
+                <p>
+                Estaticos vs dinamicos
+                <button type="button" ng-click="static=!static">Alterar</button>
+                </p>
+                
+                <ul ng-show="static">
                     <li ng-repeat="item in staticjvmlanguages" ng-class="">
                         <p ng-class="item.logo != '' && 'text-success' || 'text-danger' ">{{ item.name }} -
                                 <a ng-href="{{item.homepage}}">Website</a> -
@@ -35,7 +40,7 @@
                     </li>
                 </ul>
                 
-                <ul>
+                <ul ng-hide="static">
                         <li ng-repeat="item in dynamicjvmlanguages">
                                 {{ item }}
                         </li>

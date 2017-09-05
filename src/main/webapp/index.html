@@ -22,6 +22,24 @@
             </div>
         </div>
         <div class="container">
+            
+            <div id="dirdemo" ng-controller="demoDirectivesController">
+                <h1>Los mejores lenguajes de programación de la Galaxia</h1>
+                
+                <ul>
+                        <li ng-repeat="item in staticjvmlanguages">
+                                {{ item }}
+                        </li>
+                </ul>
+                
+                <ul>
+                        <li ng-repeat="item in dynamicjvmlanguages">
+                                {{ item }}
+                        </li>
+                </ul>
+                
+                
+            </div>
             <div id="demo" ng-controller="demoController">
                 <h1>Demo angular yeis</h1>
                 <input type="text" ng-model="simpleModel" placeholder="Hola mundo" />

@@ -5,6 +5,12 @@
 angular.module('mpApp.controllers', 
 ['mpApp.services',
 'mpApp.providers'])
+.controller('demoDirectivesController', function($scope) {
+    $scope.staticjvmlanguages = ['Java', 'Kotlin', 'Ceylon', 'Clojure', 'Scala'];
+    $scope.dynamicjvmlanguages = ['JRuby', 'Groovy', 'Jyton', 'Mirah', 'JavaScript'];
+
+    
+})
 .controller('demoController', function($scope) {
     
     $scope.dev =    {};

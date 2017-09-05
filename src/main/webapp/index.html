@@ -34,16 +34,14 @@
                 <ul ng-if="static">
                     <li ng-repeat="item in staticjvmlanguages" ng-class="">
                         <p ng-class="item.logo != '' && 'text-success' || 'text-danger' ">{{ item.name }} -
-                                <a ng-href="{{item.homepage}}">Website</a> -
+                                <a ng-href="{{item.homepage}}" >Website</a>
                                 <img ng-src="{{item.logo}}" width="35px" />
                         </p>
                     </li>
                 </ul>
                 
                 <ul ng-if="!static">
-                        <li ng-repeat="item in dynamicjvmlanguages">
-                                {{ item }}
-                        </li>
+                        <li ng-repeat="item in dynamicjvmlanguages" ng-bind="item" />
                 </ul>
                 
                 <div>
@@ -51,7 +49,8 @@
                     <input type="text" ng-model="favoritelang" placeholder="Java" />
                 </div>
                 
-                Que bueno que te gusta {{favoritelang}}
+                Que bueno que te gusta <div ng-bind="favoritelang"></div>
+                
                 
                 <div ng-switch on="favoritelang">
                     <div ng-switch-when="Java">

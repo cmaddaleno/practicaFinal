@@ -9,7 +9,7 @@ angular.module('mpApp.controllers',
     $scope.staticjvmlanguages = ['Java', 'Kotlin', 'Ceylon', 'Clojure', 'Scala'];
     $scope.dynamicjvmlanguages = ['JRuby', 'Groovy', 'Jyton', 'Mirah', 'JavaScript'];
 
-    
+    $scope.favoritelang = 'Java';
 })
 .controller('demoController', function($scope) {
     

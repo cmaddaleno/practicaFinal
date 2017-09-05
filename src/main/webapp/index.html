@@ -28,7 +28,9 @@
                 
                 <ul>
                         <li ng-repeat="item in staticjvmlanguages">
-                                {{ item }}
+                                {{ item.name }} - 
+                                <a ng-href="{{item.homepage}}">Website</a> -
+                                <img ng-src="{{item.logo}}" width="35px" />
                         </li>
                 </ul>
                 

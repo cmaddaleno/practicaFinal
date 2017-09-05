@@ -6,7 +6,13 @@ angular.module('mpApp.controllers',
 ['mpApp.services',
 'mpApp.providers'])
 .controller('demoDirectivesController', function($scope) {
-    $scope.staticjvmlanguages = ['Java', 'Kotlin', 'Ceylon', 'Clojure', 'Scala'];
+    $scope.staticjvmlanguages = [
+        {name:'Java', homepage: 'https://go.java', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/419px-Java_programming_language_logo.svg.png' },
+        {name:'Kotlin', homepage: 'https://kotlinlang.org/', logo: 'https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png' },
+        {name:'Ceylon', homepage: 'https://ceylon-lang.org/', logo: '' },
+        {name:'Clojure', homepage: 'https://clojure.org/', logo: '' },
+        {name:'Scala', homepage: 'https://www.scala-lang.org/', logo: '' }];
+        
     $scope.dynamicjvmlanguages = ['JRuby', 'Groovy', 'Jyton', 'Mirah', 'JavaScript'];
 
     $scope.favoritelang = 'Java';

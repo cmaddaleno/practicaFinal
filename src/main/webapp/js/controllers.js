@@ -5,7 +5,8 @@
 angular.module('mpApp.controllers', 
 ['mpApp.services',
 'mpApp.providers',
-'mpApp.directives'])
+'mpApp.directives',
+'mpApp.filters'])
 .controller('demoDirectivesController', function($scope) {
     $scope.staticjvmlanguages = [
         {name:'Java', homepage: 'https://go.java', birthday: new Date(1995, 05, 23, 01, 01, 01),

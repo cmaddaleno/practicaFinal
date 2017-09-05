@@ -33,13 +33,13 @@
                 </p>
                 
                 <ul ng-if="static">
-                    <li ng-repeat="item in staticjvmlanguages" ng-class="">
+                    <li ng-repeat="item in staticjvmlanguages | limitTo:3 " ng-class="" >
                         <mp-directive></mp-directive>
                     </li>
                 </ul>
                 
                 <ul ng-if="!static">
-                        <li ng-repeat="item in dynamicjvmlanguages" ng-bind="item" />
+                        <li ng-repeat="item in dynamicjvmlanguages | orderBy:item " ng-bind="item" />
                 </ul>
                 
                 <div>

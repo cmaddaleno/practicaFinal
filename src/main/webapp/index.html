@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script src="js/lib/angular.js"></script>
+        <script src="js/lib/angular-route.js"></script>
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/dummyservices.js"></script>
@@ -15,8 +16,20 @@
         <script src="js/providers.js"></script>
         <script src="js/directives.js"></script>
         <script src="js/filters.js"></script>
+        <script src="js/routes.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Demo AngularJS</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/#!demo">Demo</a></li>
+                    <li><a href="/#!demo-directives">Demo Directives</a></li>
+                </ul>
+            </div>
+        </nav>Ï
         <div class="jumbotron">
             <div class="container">
                 <h1>Hola mundo</h1>
@@ -24,97 +37,9 @@
             </div>
         </div>
         <div class="container">
-            
-            <div id="dirdemo" ng-controller="demoDirectivesController">
-                <h1>Los mejores lenguajes de programación de la Galaxia</h1>
-                
-                <p>
-                Estaticos vs dinamicos
-                <button type="button" ng-click="static=!static">Alterar</button>
-                </p>
-                
-                <ul ng-if="static">
-                    <li ng-repeat="item in staticjvmlanguages | limitTo:3 " ng-class="" >
-                        <mp-directive></mp-directive>
-                    </li>
-                </ul>
-                
-                <ul ng-if="!static">
-                        <li ng-repeat="item in dynamicjvmlanguages | orderBy:item " ng-bind="item" />
-                </ul>
-                
-                <div>
-                    <label>Mi lenguaje preferido es </label>
-                    <input type="text" ng-model="favoritelang" placeholder="Java" />
-                </div>
-                
-                Que bueno que te gusta <div ng-bind="favoritelang"></div>
-                
-                
-                <div ng-switch on="favoritelang">
-                    <div ng-switch-when="Java">
-                        <img src="https://i.ytimg.com/vi/pzUzSypE010/maxresdefault.jpg" width="256" />
-                     
-                    </div>
-                    <div ng-switch-when="C#">
-                        <img src="https://i.pinimg.com/736x/02/eb/0a/02eb0a01c39b4b07de7f3aa6a081ef5c--survival-instinct-like-you.jpg" width="256" />
-                    </div>
-                    <div ng-switch-when="JavaScript">
-                        <img src="https://qph.ec.quoracdn.net/main-qimg-b8355a88a53e75f581bd8870a6dc03d5-c" width="256" />
-                    </div>
-                  </div>
-            </div>
-            <div id="demo" ng-controller="demoController">
-                <h1>Demo angular yeis</h1>
-                <input type="text" ng-model="simpleModel" placeholder="Hola mundo" />
-                <h1>{{simpleModel}}</h1>
-                <h1 ng-bind="simpleModel"></h1>
 
-                <hr>
-                <h1>Datos dev</h1>
+            <div ng-view></div>
 
-                <button type="button" ng-click="setModel()">Cargar Datos</button>
-                <div>
-                    <label>Ingrese comentario </label>
-                    <input type="text" ng-model="dev.comentario" placeholder="Comentario" />
-                </div>
-                <div>
-                    <label>Nombre </label> {{dev.name}}
-                </div>
-                <div>
-                    <label>Email </label> {{dev.email}}
-                </div>
-                <div>
-                    <label>Comentario </label> {{dev.comentario}}
-                </div>
-            </div>
-            <hr />
-            <div id="demo2"ng-controller="norrisController">
-                <h1>Chuck norris dice</h1>
-                <div>
-                    <label>Ingrese busqueda </label>
-                    <input type="text" ng-model="search" placeholder="Busqueda" />
-                </div>
-                <button type="button" ng-click="getNorris()">Cargar Facts</button>
-                <ul ng-repeat="fact in norrisFacts">
-                    <li><label>{{fact.value}}</label> - <a ng-href="{{fact.url}}" target="_blank">Ver en ChuckNoris facts</a></li>
-                </ul>
-            </div>
-            <hr />
-            <div id="demo2" ng-controller="greetController">
-                <h1>Despedidas</h1>
-                <div>
-                    <label>Ingrese nombre </label>
-                    <input type="text" ng-model="demoName" placeholder="Nombre" />
-                </div>
-                <button type="button" ng-click="doGreet()">Saludar en consola con servicio</button>
-                <button type="button" ng-click="doGreet2()">Saludar en consola con factory</button>
-            </div>
-            <hr />
-            <div id="demo3" ng-controller="dummyController as dc">
-                <h1>Accion Dummy</h1>
-                <button type="button" ng-click="dc.doDummyFunction()">Realizar acción Dummy</button>
-            </div>
         </div>
     </body>
 </html>

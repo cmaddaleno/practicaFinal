@@ -27,11 +27,12 @@
                 <h1>Los mejores lenguajes de programación de la Galaxia</h1>
                 
                 <ul>
-                        <li ng-repeat="item in staticjvmlanguages">
-                                {{ item.name }} - 
+                    <li ng-repeat="item in staticjvmlanguages" ng-class="">
+                        <p ng-class="item.logo != '' && 'text-success' || 'text-danger' ">{{ item.name }} -
                                 <a ng-href="{{item.homepage}}">Website</a> -
                                 <img ng-src="{{item.logo}}" width="35px" />
-                        </li>
+                        </p>
+                    </li>
                 </ul>
                 
                 <ul>

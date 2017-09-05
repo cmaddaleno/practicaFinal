@@ -4,7 +4,8 @@
  */
 angular.module('mpApp.controllers', 
 ['mpApp.services',
-'mpApp.providers'])
+'mpApp.providers',
+'mpApp.directives'])
 .controller('demoDirectivesController', function($scope) {
     $scope.staticjvmlanguages = [
         {name:'Java', homepage: 'https://go.java', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/419px-Java_programming_language_logo.svg.png' },

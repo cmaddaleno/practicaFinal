@@ -3,7 +3,13 @@ var module = angular.module('mpApp.directives', []);
 
 module.directive('mpDirective', function() {
     return {
-    templateUrl: 'view/language.html'
+        restrict: 'EA', //E = element, A = attribute, C = class, M = comment
+        templateUrl: 'view/language.html',
+        link: function ($scope, element, attrs) {
+            element.bind('click', function () {
+                element.html('Nombre: ' + $scope.item.name );
+            });
+        }
     };
 });
 

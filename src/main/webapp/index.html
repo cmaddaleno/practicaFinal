@@ -31,7 +31,7 @@
                 <button type="button" ng-click="static=!static">Alterar</button>
                 </p>
                 
-                <ul ng-show="static">
+                <ul ng-if="static">
                     <li ng-repeat="item in staticjvmlanguages" ng-class="">
                         <p ng-class="item.logo != '' && 'text-success' || 'text-danger' ">{{ item.name }} -
                                 <a ng-href="{{item.homepage}}">Website</a> -
@@ -40,7 +40,7 @@
                     </li>
                 </ul>
                 
-                <ul ng-hide="static">
+                <ul ng-if="!static">
                         <li ng-repeat="item in dynamicjvmlanguages">
                                 {{ item }}
                         </li>

@@ -1,6 +1,6 @@
 <div id="demo" ng-controller="postController as posts">
     <form name="myForm">
-        <input name="myInput" ng-model="myInput" required>
+        <input name="myInput" ng-model="myInput" required="" />
     </form>
 
     <p>The input's valid state is:</p>
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="userId">Id Usuario</label>  
                 <div class="col-md-4">
-                    <input id="userId" name="userId" ng-model="posts.post.name" placeholder="42" class="form-control input-md" required="" type="text">
+                    <input id="userId" name="userId" ng-model="posts.post.name" placeholder="42" class="form-control input-md" required="" type="text" />
                     <h1>{{nabform.userId.$valid}}</h1> - Valid
                     <h3>{{nabform.userId.$untouched}}</h3> - Untouched
                     <h3>{{nabform.userId.$touched}}</h3>  - Touched
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="id">Id Post</label>  
                 <div class="col-md-4">
-                    <input id="id" name="ids" ng-model="posts.post.id" placeholder="13" class="form-control input-md" required="" type="text">
+                    <input id="id" name="ids" ng-model="posts.post.id" placeholder="13" class="form-control input-md" required="" type="text" />
                     <span ng-show="nabform.ids.$invalid">Id es obligatorio</span>
                 </div>
             </div>
@@ -43,16 +43,16 @@
             <div class="form-group" ng-class="{ 'has-error': nabform.title.$invalid }">
                 <label class="col-md-4 control-label" for="title">Titulo</label>  
                 <div class="col-md-4">
-                    <input id="title" name="title" ng-model="posts.post.title" placeholder="El post" class="form-control input-md" required="" type="text">
+                    <input id="title" name="title" ng-model="posts.post.title" placeholder="El post" class="form-control input-md" required="" type="text" />
 
                 </div>
             </div>
 
             <!-- Textarea -->
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error': nabform.body.$invalid }">
                 <label class="col-md-4 control-label" for="body">Contenido</label>
                 <div class="col-md-4">                     
-                    <textarea class="form-control" id="body" name="body" ng-model="posts.post.body">Este es un post</textarea>
+                    <textarea class="form-control" id="body" name="body" ng-model="posts.post.body" dummy-control>Este es un post</textarea>
                 </div>
             </div>
 

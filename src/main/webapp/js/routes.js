@@ -12,6 +12,11 @@ module.config(function($routeProvider, $locationProvider){
                 templateUrl: 'view/demo-directives.html',
                 controller: 'demoDirectivesController'
             })
+            .when('/posts', {
+                templateUrl: 'app/posts/detail.html',
+                controller: 'postController'
+            })
+            
             .otherwise({
                 redirectTo: '/demo'
             });

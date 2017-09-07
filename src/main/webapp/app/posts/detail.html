@@ -1,10 +1,8 @@
 <div id="demo" ng-controller="postController as posts">
-    <form name="myForm">
-        <input name="myInput" ng-model="myInput" required="" />
-    </form>
-
-    <p>The input's valid state is:</p>
-    <h1>{{myForm.myInput.$valid}}</h1> 
+    
+    
+    <h1>Last update</h1> 
+    <p ng-bind="posts.time"></p>
     
     {{posts.post}}
     <form name="nabform" class="form-horizontal">

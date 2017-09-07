@@ -4,13 +4,15 @@ var module = angular.module('mpApp.controllers');
 
 module.controller('postController', function($scope, $log, $http) {
     
-    $scope.save = function(){
+    this.save = function(){
         $log.warn('save');
         
     };
     
-    $scope.cancel = function(){
+    this.cancel = function(){
         $log.warn('cancel');
     };
+    
+    this.post = {};
 
 });

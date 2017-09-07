@@ -1,4 +1,4 @@
-<div id="demo" ng-controller="postController">
+<div id="demo" ng-controller="postController as posts">
     <form class="form-horizontal">
         <fieldset>
 
@@ -47,8 +47,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ok"></label>
                 <div class="col-md-8">
-                    <button id="ok" name="ok" class="btn btn-success" ng-click="save()">Aceptar</button>
-                    <button id="cancel" name="cancel" class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+                    <button id="ok" name="ok" class="btn btn-success" ng-click="posts.save()">Aceptar</button>
+                    <button id="cancel" name="cancel" class="btn btn-danger" ng-click="posts.cancel()">Cancelar</button>
                 </div>
             </div>
 

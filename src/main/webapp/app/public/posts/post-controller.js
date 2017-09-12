@@ -2,7 +2,26 @@
 var module = angular.module('mpApp.public');
 
 
-module.controller('postController', function ($scope, $log, postResource) {
+module.controller('searchPostController', function ($scope, $log, postResource) {
+    var pc = this;
+    
+    pc.posts = [];
+    
+    pc.search = function(){
+        var successCallback = function(data, responseHeaders) {
+            pc.posts = data;
+        };
+
+        var errorCallback = function(responseHeaders) {
+            $log.error('error while persisting');
+        };
+
+         postResource.query({}, successCallback, errorCallback);
+    }
+    
+});
+
+module.controller('newPostController', function ($scope, $log, postResource) {
 
     var pc = this;
 
@@ -21,8 +40,7 @@ module.controller('postController', function ($scope, $log, postResource) {
          postResource.save($scope.admOrganization, successCallback, errorCallback);
 
     };
-
-
+    
     pc.cancel = function () {
         pc.post = {};
     };

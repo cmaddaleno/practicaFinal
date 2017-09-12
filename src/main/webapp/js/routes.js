@@ -13,10 +13,13 @@ module.config(function($routeProvider, $locationProvider){
                 controller: 'demoDirectivesController'
             })
             .when('/posts', {
-                templateUrl: 'app/public/posts/detail.html',
-                controller: 'postController'
+                templateUrl: 'app/public/posts/search.html',
+                controller: 'searchPostController'
             })
-            
+            .when('/new-post', {
+                templateUrl: 'app/public/posts/detail.html',
+                controller: 'newPostController'
+            })
             .otherwise({
                 redirectTo: '/demo'
             });

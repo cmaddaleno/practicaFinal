@@ -5,7 +5,7 @@ module.factory('postResource', function ($resource) {
     return $resource('https://jsonplaceholder.typicode.com/posts/:id', {
             id : '@id'
         }, {
-        'query': {
+        'queryAll': {
             method: 'GET',
             isArray: true
         }

@@ -1,0 +1,26 @@
+<div id="demo" ng-controller="searchPostController as posts">
+    <!-- Button (Double) -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="ok"></label>
+        <div class="col-md-8">
+            <button id="ok" name="ok" class="btn btn-success" ng-click="posts.search()">Buscar</button>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Titulo</th>
+                <th>Contenido</th>
+            </tr>
+            <tr ng-repeat="p in posts.posts">
+                <td>{{p.id}}</td>
+                <td>{{p.userId}}</td>
+                <td>{{p.title}}</td>
+                <td>{{p.body}}</td>
+            </tr>
+        </table>
+    </div> 
+</div>

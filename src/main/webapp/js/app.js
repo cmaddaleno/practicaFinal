@@ -6,5 +6,8 @@ angular.module('mpApp', [
   'mpApp.controllers',
   'mpApp.services',
   'mpApp.providers',
-  'ngRoute'
+  'mpApp.public',
+  'mpApp.ui',
+  'ngRoute',
+  'ngResource'
 ]);

@@ -1,10 +1,6 @@
 <div id="demo" ng-controller="postController as posts">
     
-    
-    <h1>Last update</h1> 
-    <p ng-bind="posts.time"></p>
-    
-    {{posts.post}}
+
     <form name="nabform" class="form-horizontal">
         <fieldset>
 
@@ -12,26 +8,18 @@
             <legend>Posts</legend>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error': nabform.userId.$invalid }">
                 <label class="col-md-4 control-label" for="userId">Id Usuario</label>  
                 <div class="col-md-4">
                     <input id="userId" name="userId" ng-model="posts.post.name" placeholder="42" class="form-control input-md" required="" type="text" />
-                    <h1>{{nabform.userId.$valid}}</h1> - Valid
-                    <h3>{{nabform.userId.$untouched}}</h3> - Untouched
-                    <h3>{{nabform.userId.$touched}}</h3>  - Touched
-                    <h3>{{nabform.userId.$pristine}}</h3> - Pristine
-                    <h3>{{nabform.userId.$dirty}}</h3>  - Dirty
-                    <h3>{{nabform.userId.$invalid}}</h3>  - Invalid
-                   
                 </div>
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error': nabform.id.$invalid }">
                 <label class="col-md-4 control-label" for="id">Id Post</label>  
                 <div class="col-md-4">
-                    <input id="id" name="ids" ng-model="posts.post.id" placeholder="13" class="form-control input-md" required="" type="text" />
-                    <span ng-show="nabform.ids.$invalid">Id es obligatorio</span>
+                    <input id="id" name="id" ng-model="posts.post.id" placeholder="13" class="form-control input-md" required="" type="text" />
                 </div>
             </div>
 

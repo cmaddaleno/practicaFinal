@@ -1,5 +1,5 @@
 
-var module = angular.module('mpApp.directives');
+var module = angular.module('mpApp.ui');
 
 /**
  * Validates if input contains e

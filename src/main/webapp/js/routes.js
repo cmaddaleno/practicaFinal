@@ -13,7 +13,7 @@ module.config(function($routeProvider, $locationProvider){
                 controller: 'demoDirectivesController'
             })
             .when('/posts', {
-                templateUrl: 'app/posts/detail.html',
+                templateUrl: 'app/public/posts/detail.html',
                 controller: 'postController'
             })
             

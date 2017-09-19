@@ -13,21 +13,79 @@ module.controller('searchPostController', function ($scope, $log, postResource) 
         };
 
         var errorCallback = function(responseHeaders) {
+            $log.error('search error ' + responseHeaders);
+        };
+
+         postResource.queryAll({}, successCallback, errorCallback);
+    };
+    
+    pc.delete = function(id){
+        
+    };
+    
+    pc.search();
+});
+
+
+module.controller('editPostController', function ($scope, $log, $routeParams, $location, postResource) {
+    $scope.location = $location.path();
+    $scope.post = {};
+    $scope.get = function(){
+        var successCallback = function(data, responseHeaders) {
+            $log.info('retrieved successfuly ' + JSON.stringify(data));
+            $scope.post = data;
+        };
+
+        var errorCallback = function(responseHeaders) {
+            $log.error('error while searching ' + responseHeaders);
+        };
+        
+        postResource.query({id:$routeParams.id}, successCallback, errorCallback);
+    };
+
+    $scope.save = function () {
+
+        var successCallback = function(data, responseHeaders) {
+            $log.info('updating successfuly ' + data);
+            $location.path('/posts');
+        };
+
+        var errorCallback = function(responseHeaders) {
             $log.error('error while persisting');
         };
 
-         postResource.query({}, successCallback, errorCallback);
-    }
+         //postResource.update($scope.post, successCallback, errorCallback);
+         
+         $scope.post.$update(successCallback, errorCallback);
+
+    };
     
+    $scope.delete = function () {
+
+        var successCallback = function(data, responseHeaders) {
+            $log.info('removed successfuly ' + data);
+            $location.path('/posts');
+        };
+
+        var errorCallback = function(responseHeaders) {
+            $log.error('error while persisting');
+        };
+
+         //postResource.update($scope.post, successCallback, errorCallback);
+         
+         $scope.post.$remove(successCallback, errorCallback);
+
+    };
+    
+    $scope.get();
+
 });
 
 module.controller('newPostController', function ($scope, $log, postResource) {
 
-    var pc = this;
+    $scope.post = {};
 
-    pc.post = {};
-
-    pc.save = function () {
+    $scope.save = function () {
 
         var successCallback = function(data, responseHeaders) {
             $log.info('saved successfuly ' + data);
@@ -37,20 +95,12 @@ module.controller('newPostController', function ($scope, $log, postResource) {
             $log.error('error while persisting');
         };
 
-         postResource.save($scope.admOrganization, successCallback, errorCallback);
+         postResource.save($scope.post, successCallback, errorCallback);
 
     };
     
-    pc.cancel = function () {
-        pc.post = {};
+    $scope.cancel = function () {
+        $scope.post = {};
     };
-
-
-    //$scope.$watch('post.title', ...);
-    $scope.$watch(function () {
-        return pc.post.title;
-    }, function (newValue, oldValue) {
-        $log.info('changing post. Old value ' + oldValue + ' New value ' + newValue);
-    });
 
 });

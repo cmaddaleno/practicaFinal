@@ -20,6 +20,10 @@ module.config(function($routeProvider, $locationProvider){
                 templateUrl: 'app/public/posts/detail.html',
                 controller: 'newPostController'
             })
+            .when('/update-post/:id', {
+                templateUrl: 'app/public/posts/detail.html',
+                controller: 'editPostController'
+            })
             .otherwise({
                 redirectTo: '/demo'
             });

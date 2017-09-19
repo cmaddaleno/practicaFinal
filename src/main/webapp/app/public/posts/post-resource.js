@@ -8,14 +8,14 @@ module.factory('postResource', function ($resource) {
         'queryAll': {
             method: 'GET',
             isArray: true
+        },
+        'query' : {
+                method : 'GET',
+                isArray : false
+        },
+        'update' : {
+            method : 'PUT'
         }
-//        'query' : {
-//                method : 'GET',
-//                isArray : false
-//        },
-//        'update' : {
-//            method : 'PUT'
-//        },
 //        'persistImage' : {
 //            method : 'POST',
 //            url: 'rest/protected/organizations/persist-image'

@@ -26,6 +26,7 @@ module.factory('helloService', function($http, $q, $timeout, comm) {
             	$timeout(function() { 
             		self.hello = 'JavaScript is everywhere';
             		deferred.resolve(self.hello + " (from Server!)");
+            		//deferred.reject(response);
             		
             		}, 5000);
                 

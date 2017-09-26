@@ -2,22 +2,29 @@
 var module = angular.module('mpApp.public');
 
 
-module.controller('promisesController', function ($scope, $log, helloService) {
+module.controller('promisesController', function ($scope, $log, $http, helloService, comm, postResource) {
 	
 	  $scope.hello = "";
+	  $scope.serverHello = "";
+	  $scope.posts = [];
 
-	  //  We have a function on the scope that can update the name.
+	  //  Promise chaining
 	  $scope.testPromise = function() {
 		  helloService.getHello()
-	      .then(
-	      /* success function */
-	      function(result) {
+	      .then(function(result) {
 	        $scope.hello = result;
-	      },
-	      /* error function */
-	      function(result) {
-	        $log.info("Failed to get the name, result is " + result); 
-	      });
+	        return $http.get(comm.url + '/hello');
+	      })
+	      .then(function(result) {
+		        $scope.serverHello = result.data;
+		        return postResource.queryAll({"max":100}).$promise;
+		   })
+		   .then(function(result) {
+			   $scope.posts = result;
+		   })
+	      .catch(function(error) {
+		    console.log("An error occured: " + error);
+		  });
 	  };
     
 });

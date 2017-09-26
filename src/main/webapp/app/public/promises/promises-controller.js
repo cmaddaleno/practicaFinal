@@ -2,21 +2,22 @@
 var module = angular.module('mpApp.public');
 
 
-module.controller('promisesController', function ($scope, $log, comm, $http) {
+module.controller('promisesController', function ($scope, $log, helloService) {
 	
-	$scope.testPromise = function(){
-		var promise = $http.get(comm.url + '/hello');
-		$log.info(promise);
-		
-		promise.then(
-			    /* success */
-			    function(response) {
-			      $log.info("Data " + response.data);
-			    },
-			    /* failure */
-			    function(error) {
-			      $log.error("Error: " + error);
-			  });
-	}
+	  $scope.hello = "";
+
+	  //  We have a function on the scope that can update the name.
+	  $scope.testPromise = function() {
+		  helloService.getHello()
+	      .then(
+	      /* success function */
+	      function(result) {
+	        $scope.hello = result;
+	      },
+	      /* error function */
+	      function(result) {
+	        $log.info("Failed to get the name, result is " + result); 
+	      });
+	  };
     
 });

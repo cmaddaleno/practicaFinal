@@ -12,18 +12,7 @@ module.config(function($routeProvider, $locationProvider){
                 templateUrl: 'view/demo-directives.html',
                 controller: 'demoDirectivesController'
             })
-            .when('/posts', {
-                templateUrl: 'app/public/posts/search.html',
-                controller: 'searchPostController'
-            })
-            .when('/new-post', {
-                templateUrl: 'app/public/posts/detail.html',
-                controller: 'newPostController'
-            })
-            .when('/update-post/:id', {
-                templateUrl: 'app/public/posts/detail.html',
-                controller: 'editPostController'
-            })
+            
             .otherwise({
                 redirectTo: '/demo'
             });

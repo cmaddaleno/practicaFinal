@@ -16,7 +16,7 @@ module.controller('searchPostController', function ($scope, $log, postResource) 
             $log.error('search error ' + responseHeaders);
         };
 
-         postResource.queryAll({}, successCallback, errorCallback);
+         postResource.queryAll({"max":100}, successCallback, errorCallback);
     };
     
     pc.delete = function(id){
@@ -81,7 +81,7 @@ module.controller('editPostController', function ($scope, $log, $routeParams, $l
 
 });
 
-module.controller('newPostController', function ($scope, $log, postResource) {
+module.controller('newPostController', function ($scope, $log, $location, postResource) {
 
     $scope.post = {};
 
@@ -89,6 +89,7 @@ module.controller('newPostController', function ($scope, $log, postResource) {
 
         var successCallback = function(data, responseHeaders) {
             $log.info('saved successfuly ' + data);
+            $location.path('/posts');
         };
 
         var errorCallback = function(responseHeaders) {

@@ -4,7 +4,13 @@
 
             <!-- Form Name -->
             <legend>Posts</legend>
-
+            <!-- Text input-->
+            <div class="form-group" ng-class="{ 'has-error': nabform.id.$invalid }">
+                <label class="col-md-4 control-label" for="id">Id Post</label>  
+                <div class="col-md-4">
+                    <input id="id" name="id" ng-model="post.id" placeholder="13" class="form-control input-md" ng-disabled="true" type="text" />
+                </div>
+            </div>
             <!-- Text input-->
             <div class="form-group" ng-class="{ 'has-error': nabform.userId.$invalid }">
                 <label class="col-md-4 control-label" for="userId">Id Usuario</label>  
@@ -13,13 +19,7 @@
                 </div>
             </div>
 
-            <!-- Text input-->
-            <div class="form-group" ng-class="{ 'has-error': nabform.id.$invalid }">
-                <label class="col-md-4 control-label" for="id">Id Post</label>  
-                <div class="col-md-4">
-                    <input id="id" name="id" ng-model="post.id" placeholder="13" class="form-control input-md" required="" type="text" />
-                </div>
-            </div>
+
 
 
 

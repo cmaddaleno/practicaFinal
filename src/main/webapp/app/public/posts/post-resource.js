@@ -1,8 +1,8 @@
 var module = angular.module('mpApp.public');
 
 
-module.factory('postResource', function ($resource) {
-    return $resource('https://jsonplaceholder.typicode.com/posts/:id', {
+module.factory('postResource', function ($resource, comm) {
+    return $resource(comm.url + '/posts/:id', {
             id : '@id'
         }, {
         'queryAll': {

@@ -25,13 +25,14 @@ import javax.inject.Inject;
  */
 @Stateless
 @Path("/posts")
+@Produces("application/json")
+@Consumes("application/json")
 public class PostEndpoint {
 
     @Inject
     PostDao postService;
 
     @POST
-    @Consumes("application/json")
     public Response create(Post entity) {
         postService.create(entity);
 
@@ -53,7 +54,6 @@ public class PostEndpoint {
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces("application/json")
     public Response findById(@PathParam("id") Long id) {
 
         Post entity = postService.findById(id);
@@ -64,7 +64,6 @@ public class PostEndpoint {
     }
 
     @GET
-    @Produces("application/json")
     public List<Post> listAll(@QueryParam("start") Integer startPosition,
             @QueryParam("max") Integer maxResult) {
         
@@ -74,7 +73,6 @@ public class PostEndpoint {
 
     @PUT
     @Path("/{id:[0-9][0-9]*}")
-    @Consumes("application/json")
     public Response update(@PathParam("id") Long id, Post entity) {
         if (entity == null) {
             return Response.status(Status.BAD_REQUEST).build();

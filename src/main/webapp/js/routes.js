@@ -16,9 +16,17 @@ module.config(function($routeProvider, $locationProvider){
                 templateUrl: 'app/public/posts/search.html',
                 controller: 'searchPostController'
             })
+            .when('/autos', {
+                templateUrl: 'app/public/automovil/search.html',
+                controller: 'searchAutoController'
+            })
             .when('/new-post', {
                 templateUrl: 'app/public/posts/detail.html',
                 controller: 'newPostController'
+            })
+            .when('/new-auto', {
+                templateUrl: 'app/public/automovil/detail.html',
+                controller: 'newAutoController'
             })
             .when('/update-post/:id', {
                 templateUrl: 'app/public/posts/detail.html',

@@ -29,9 +29,19 @@ public class Automovil implements Serializable {
         return cantPuertas;
     }
 
+    public void setCantPuertas(int cantPuertas) {
+        this.cantPuertas = cantPuertas;
+    }
+
     public String getColor() {
         return color;
     }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    
 
     public Long getId() {
         return this.id;

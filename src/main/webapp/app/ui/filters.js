@@ -1,4 +1,4 @@
-var module = angular.module('mpApp.filters', []);
+var module = angular.module('mpApp.ui');
 
 module.filter('mirror', function reversal () {
     return function(item) {

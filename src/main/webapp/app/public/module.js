@@ -23,5 +23,12 @@ module.config(function($routeProvider, $locationProvider){
     .when('/promises', {
         templateUrl: 'app/public/promises/detail.html',
         controller: 'promisesController'
+    }).when('/demo', {
+        templateUrl: 'app/public/demo/demo.html',
+        controller: 'demoController'
+    })
+    .when('/demo-directives', {
+        templateUrl: 'app/public/demo-directives/demo-directives.html',
+        controller: 'demoDirectivesController'
     });
 });

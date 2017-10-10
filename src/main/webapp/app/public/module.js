@@ -37,6 +37,25 @@ module.config(function($urlRouterProvider, $stateProvider){
             	controller : 'demoDirectivesController',
                 templateUrl: 'app/public/demo-directives/demo-directives.html'
             }
+        },
+        resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+            loadMyCtrl: function($ocLazyLoad) {
+              // you can lazy load files for an existing module
+                     return $ocLazyLoad.load('app/public/demo-directives/demo-directives-controller.js');
+            }
+        }
+    });
+
+	$stateProvider.state('public.promises',{
+        url: '/promises',
+        data:{
+            title: 'Promises'
+        },
+        views:{
+            "root@app":{
+            	controller : 'promisesController',
+                templateUrl: 'app/public/promises/detail.html'
+            }
         }
     });
 	

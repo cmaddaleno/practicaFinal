@@ -5,7 +5,8 @@
 var module = angular.module('mpApp', [
   'mpApp.public',
   'mpApp.ui',
-  'ngResource'
+  'ngResource',
+  'oc.lazyLoad'
 ]);
 
 

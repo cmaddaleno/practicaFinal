@@ -3,20 +3,20 @@
  * @type angular app
  */
 var module = angular.module('mpApp', [
-//  'mpApp.services',
-//  'mpApp.providers',
   'mpApp.public',
   'mpApp.ui',
-  'ngRoute',
-  'ngResource'
+  'ngResource',
+  'ui.router'
 ]);
 
 
-module.config(function($routeProvider, $locationProvider) {
+module.config(function($locationProvider, $stateProvider) {
 	$locationProvider.hashPrefix();
-	$routeProvider
+	
 
-	.otherwise({
-		redirectTo : '/demo'
-	});
+//	$routeProvider
+//
+//	.otherwise({
+//		redirectTo : '/demo'
+//	});
 });

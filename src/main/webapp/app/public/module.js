@@ -38,9 +38,8 @@ module.config(function($urlRouterProvider, $stateProvider){
                 templateUrl: 'app/public/demo-directives/demo-directives.html'
             }
         },
-        resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+        resolve: { 
             loadMyCtrl: function($ocLazyLoad) {
-              // you can lazy load files for an existing module
                      return $ocLazyLoad.load('app/public/demo-directives/demo-directives-controller.js');
             }
         }
@@ -63,6 +62,13 @@ module.config(function($urlRouterProvider, $stateProvider){
         url : '/posts',
         data : {
             title : 'Posts'
+        },
+        
+        resolve: { 
+        	searchPostFiles: function($ocLazyLoad) {
+                     return $ocLazyLoad.load(['app/public/posts/post-resource.js',
+                    	 'app/public/posts/post-controller.js']);
+            }
         },
         views : {
             "root@app" : {

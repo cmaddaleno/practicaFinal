@@ -7,7 +7,14 @@ module.constant('comm',{
 
 module.config(function($urlRouterProvider, $stateProvider){
 	$urlRouterProvider.otherwise('/')
-	$stateProvider.state('demo',{
+	$stateProvider.state('public', {
+            abstract : true,
+            data : {
+                title : 'MP Enterprise'
+            }
+        });
+	
+	$stateProvider.state('public.demo',{
         url: '/',
         data:{
             title: 'Demo'
@@ -20,7 +27,7 @@ module.config(function($urlRouterProvider, $stateProvider){
         }
     });
 	
-	$stateProvider.state('demoDirectives',{
+	$stateProvider.state('public.demoDirectives',{
         url: '/demo-directives',
         data:{
             title: 'Demo Directives'
@@ -32,8 +39,41 @@ module.config(function($urlRouterProvider, $stateProvider){
             }
         }
     });
+	
+	$stateProvider.state('public.posts', {
+        url : '/posts',
+        data : {
+            title : 'Posts'
+        },
+        views : {
+            "root@app" : {
+                templateUrl : 'app/public/posts/search.html',
+                controller : 'searchPostController'
+            }
+        }
+    });
+	
+	$stateProvider.state('public.posts.edit', {
+        url : '/update/:id',
+        views : {
+            "root@app" : {
+                templateUrl : 'app/public/posts/detail.html',
+                controller : 'editPostController'
+            }
+        }
     
-});
+	});
+	
+	$stateProvider.state('public.posts.new', {
+        url : '/new',
+        views : {
+            "root@app" : {
+                templateUrl : 'app/public/posts/detail.html',
+                controller : 'newPostController'
+            }
+        }
+    
+	});
 
 //
 //module.config(function($routeProvider, $locationProvider){
@@ -62,4 +102,4 @@ module.config(function($urlRouterProvider, $stateProvider){
 //        templateUrl: 'app/public/demo-directives/demo-directives.html',
 //        controller: 'demoDirectivesController'
 //    });
-//});
+});

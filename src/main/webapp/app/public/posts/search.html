@@ -4,7 +4,7 @@
         <label class="col-md-4 control-label" for="ok"></label>
         <div class="col-md-8">
             <button id="ok" name="ok" class="btn btn-success" ng-click="posts.search()">Buscar</button>
-            <a id="new" href="#!/new-post" class="btn btn-primary">
+            <a id="new" ui-sref="public.posts.new" class="btn btn-primary">
                 Nuevo post
             </a>
         </div>
@@ -19,7 +19,7 @@
                 <th>Contenido</th>
             </tr>
             <tr ng-repeat="p in posts.posts">
-                <td> <a ng-href="#!/update-post/{{p.id}}">{{p.id}}</a></td>
+            	<td> <a ui-sref="public.posts.edit({ id: p.id })">{{p.id}}</a></td>
                 <td>{{p.userId}}</td>
                 <td>{{p.title}}</td>
                 <td>{{p.body}}</td>

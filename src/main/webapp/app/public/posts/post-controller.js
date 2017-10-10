@@ -27,7 +27,7 @@ module.controller('searchPostController', function ($scope, $log, postResource) 
 });
 
 
-module.controller('editPostController', function ($scope, $log, $routeParams, $location, postResource) {
+module.controller('editPostController', function ($scope, $log, $stateParams, $location, postResource) {
     $scope.location = $location.path();
     $scope.post = {};
     $scope.get = function(){
@@ -40,7 +40,7 @@ module.controller('editPostController', function ($scope, $log, $routeParams, $l
             $log.error('error while searching ' + responseHeaders);
         };
         
-        postResource.query({id:$routeParams.id}, successCallback, errorCallback);
+        postResource.query({id:$stateParams.id}, successCallback, errorCallback);
     };
 
     $scope.save = function () {

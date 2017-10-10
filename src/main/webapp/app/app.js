@@ -5,8 +5,7 @@
 var module = angular.module('mpApp', [
   'mpApp.public',
   'mpApp.ui',
-  'ngResource',
-  'ui.router'
+  'ngResource'
 ]);
 
 

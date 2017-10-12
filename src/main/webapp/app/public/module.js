@@ -24,6 +24,11 @@ module.config(function ($urlRouterProvider, $stateProvider) {
                 controller: 'demoController',
                 templateUrl: 'app/public/demo/demo.html'
             }
+        },
+        resolve: {
+            loadMyCtrl: function ($ocLazyLoad) {
+                return $ocLazyLoad.load('app/public/demo/demo-controller.js');
+            }
         }
     });
 
@@ -55,6 +60,12 @@ module.config(function ($urlRouterProvider, $stateProvider) {
                 controller: 'promisesController',
                 templateUrl: 'app/public/promises/detail.html'
             }
+        },
+        resolve: {
+            loadMyCtrl: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/promises/promises-controller.js',
+                    'app/public/promises/promises-service.js']);
+            }
         }
     });
 
@@ -84,6 +95,11 @@ module.config(function ($urlRouterProvider, $stateProvider) {
                 templateUrl: 'app/public/posts/detail.html',
                 controller: 'editPostController'
             }
+        }, resolve: {
+            searchPostFiles: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/posts/post-resource.js',
+                    'app/public/posts/post-controller.js']);
+            }
         }
 
     });
@@ -94,6 +110,11 @@ module.config(function ($urlRouterProvider, $stateProvider) {
             "root@app": {
                 templateUrl: 'app/public/posts/detail.html',
                 controller: 'newPostController'
+            }
+        }, resolve: {
+            searchPostFiles: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/posts/post-resource.js',
+                    'app/public/posts/post-controller.js']);
             }
         }
 
@@ -109,9 +130,14 @@ module.config(function ($urlRouterProvider, $stateProvider) {
                 controller: 'searchAutoController',
                 templateUrl: 'app/public/automovil/search.html'
             }
+        }, resolve: {
+            searchVehicleFiles: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/automovil/auto-controller.js',
+                    'app/public/automovil/auto-resource.js']);
+            }
         }
     });
-    
+
     $stateProvider.state('public.vehicle.new', {
         url: '/new-auto',
         views: {
@@ -119,16 +145,26 @@ module.config(function ($urlRouterProvider, $stateProvider) {
                 templateUrl: 'app/public/automovil/detail.html',
                 controller: 'newAutoController'
             }
+        }, resolve: {
+            searchVehicleFiles: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/automovil/auto-controller.js',
+                    'app/public/automovil/auto-resource.js']);
+            }
         }
 
     });
-    
+
     $stateProvider.state('public.vehicle.edit', {
         url: '/update-vehicle/:id',
         views: {
             "root@app": {
                 templateUrl: 'app/public/automovil/detail.html',
                 controller: 'editAutoController'
+            }
+        }, resolve: {
+            searchVehicleFiles: function ($ocLazyLoad) {
+                return $ocLazyLoad.load(['app/public/automovil/auto-controller.js',
+                    'app/public/automovil/auto-resource.js']);
             }
         }
 
